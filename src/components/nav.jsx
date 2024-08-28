@@ -22,6 +22,9 @@ export default class MyNav extends Component {
       handleShow = () => {
         this.setState({...this.state, show: true });
       };
+      clearForm = () => {
+        this.setState({titleSearch: ''})
+      }
 
     render(){
         return (
@@ -64,7 +67,7 @@ export default class MyNav extends Component {
                                 
                             }
                             } />)}
-                            {this.state.titleSearch.length > 4 && (<Search value = {this.state.titleSearch} mySearch = {this.state.titleSearch}/>)}
+                            {this.state.titleSearch.length > 4 && (<Search clearForm = {this.clearForm} value = {this.state.titleSearch} mySearch = {this.state.titleSearch}/>)}
                         <li className="nav-item">
                             <a className="nav-link active fw-bold" onClick={() => {
                                 this.setState({

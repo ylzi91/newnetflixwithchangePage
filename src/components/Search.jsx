@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { ListGroup } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default class Search extends Component {
 
@@ -48,7 +49,7 @@ export default class Search extends Component {
         
         {!this.state.listFilm ? '' : this.state.listFilm.map (film => {
             return (
-                <ListGroup.Item> <img style={{width: '50px'}} src = {film.Poster} />{film.Title}</ListGroup.Item>
+               <ListGroup.Item > <img style={{width: '50px'}} src = {film.Poster} /><Link onClick={()=> {this.props.clearForm()}} className=" link-light" to = {`movie-details/${film.imdbID}`} >{film.Title}</Link> </ListGroup.Item>
               
             )
         })}
